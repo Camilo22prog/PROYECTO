@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SquareSpiral
-comment0.text=\r\n\ SquareSpiral.java\ -\ Dibuja\ la\ ruta\ como\ espiral\ cuadrada\ y\ convierte\r\n\ posiciones\ l\u00F3gicas\ en\ coordenadas\ de\ pantalla.\r\n\ @author\ TuNombre\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Dibuja\ la\ ruta\ como\ espiral\ cuadrada\ y\ convierte\r\n\ posiciones\ l\u00F3gicas\ en\ coordenadas\ de\ pantalla.\r\n\ @author\ MELO-ROZO\r\n\ @CASO\ 2\r\n
 comment1.params=length
 comment1.target=SquareSpiral(int)
 comment2.params=

@@ -1,12 +1,19 @@
 #BlueJ class context
 comment0.target=SilkRoad
-comment0.text=\r\n\ SilkRoad.java\r\n\ Clase\ principal\ del\ The\ Silk\ Road\ \u2026\ with\ Robots\!.\r\n\ Permite\ crear\ una\ ruta.\r\n\ @author\ MELO-ROZO\r\n\ @Ciclo\ 1\r\n
+comment0.text=\r\nClase\ principal\ del\ simulador\ "The\ Silk\ Road\ ...\ with\ Robots\!".\r\n\ Permite\ crear\ una\ ruta,\ a\u00F1adir/eliminar\ tiendas\ y\ robots,\ moverlos\r\n\ y\ consultar\ ganancias.\r\n\ @author\ MELO-ROZO\r\n\ CICLO-3\r\n
 comment1.params=length
 comment1.target=SilkRoad(int)
-comment1.text=\r\n\ Crea\ una\ nueva\ ruta\ de\ seda.\r\n\ @param\ longitud\ total\ de\ la\ ruta\ (n\u00FAmero\ de\ posiciones).\r\n
-comment2.params=
-comment2.target=void\ makeVisible()
-comment3.params=args
-comment3.target=void\ main(java.lang.String[])
-comment3.text=\r\n\ M\u00E9todo\ r\u00E1pido\ para\ probar\ que\ el\ esqueleto\ compila.\r\n
-numComments=4
+comment1.text=\r\n\ Crea\ una\ nueva\ ruta\ de\ seda.\r\n\ @param\ length\ longitud\ total\ de\ la\ ruta\ (n\u00BA\ de\ posiciones).\r\n
+comment2.params=location\ tenges
+comment2.target=void\ placeStore(int,\ int)
+comment2.text=\r\n\ A\u00F1ade\ una\ tienda\ en\ la\ posici\u00F3n\ indicada.\r\n\ @param\ location\ posici\u00F3n\ l\u00F3gica\ sobre\ la\ espiral.\r\n\ @param\ tenges\ \ \ cantidad\ de\ dinero\ inicial\ de\ la\ tienda.\r\n
+comment3.params=location
+comment3.target=void\ placeRobot(int)
+comment3.text=\r\n\ A\u00F1ade\ un\ robot\ en\ la\ posici\u00F3n\ indicada.\r\n\ @param\ location\ posici\u00F3n\ l\u00F3gica\ inicial\ del\ robot.\r\n
+comment4.params=
+comment4.target=void\ makeVisible()
+comment4.text=\r\n\ Hace\ visible\ la\ ventana\ del\ simulador\ (thread-safe).\r\n
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\r\n\ Prueba\ r\u00E1pida\ del\ funcionamiento\ visual.\r\n
+numComments=6

@@ -1,19 +1,25 @@
 import shapes.*;
 import javax.swing.*;
+import java.awt.*;
 
 /**
- * SilkDisplay.java - Ventana que muestra la ruta y sus elementos.
- * @author TuNombre
- * @version 1.0 (Ciclo 2)
+ * Ventana que muestra la ruta, tiendas y robots.
+ * @author MELO-ROZO
+ * CICLO-3
  */
 public class SilkDisplay {
+
     private final JFrame frame;
-    private final Canvas canvas;
+    private final shapes.Canvas canvas;
     private final SquareSpiral spiral;
 
-    public SilkDisplay(int length){
+    /**
+     * Crea el panel gráfico con la espiral base.
+     * @param length longitud total de la ruta (nº de pasos).
+     */
+    public SilkDisplay(int length) {
         spiral = new SquareSpiral(length);
-        canvas = new Canvas();
+        canvas = new shapes.Canvas();
         canvas.add(spiral);
 
         frame = new JFrame("SilkRoad");
@@ -22,7 +28,43 @@ public class SilkDisplay {
         frame.pack();
     }
 
-    public void makeVisible(){
-        javax.swing.SwingUtilities.invokeLater(() -> frame.setVisible(true));
+    /**
+     * Muestra la ventana (thread-safe).
+     */
+    public void makeVisible() {
+        SwingUtilities.invokeLater(() -> frame.setVisible(true));
+    }
+
+    /* ========== MÉTODOS CICLO-3 ========== */
+
+    /**
+     * Añade un círculo que representa una tienda.
+     * @param s tienda con posición y color.
+     */
+    public void addStore(Store s) {
+        int[] xy = spiral.toXY(s.getLocation());
+        Circle c = new Circle(xy[0], xy[1], 10);
+        c.changeColor(s.getColor());
+        canvas.add(c);
+        canvas.repaint();
+    }
+
+    /**
+     * Añade un círculo que representa un robot.
+     * @param r robot con posición y color.
+     */
+    public void addRobot(Robot r) {
+        int[] xy = spiral.toXY(r.getLocation());
+        Circle c = new Circle(xy[0], xy[1], 10);
+        c.changeColor(r.getColor());
+        canvas.add(c);
+        canvas.repaint();
+    }
+
+    /**
+     * Libera la ventana y sus recursos.
+     */
+    public void dispose() {
+        frame.dispose();
     }
 }

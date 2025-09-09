@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 /**
  * Canvas.java - Panel donde se dibujan todas las figuras.
- * @author TuNombre
- * @version 1.0
+ * @author MELO - ROZO
+   * CICLO 3
  */
 public class Canvas extends JPanel {
     private final List<Shape> shapes = new ArrayList<>();

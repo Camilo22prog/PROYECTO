@@ -1,4 +1,12 @@
 #BlueJ class context
 comment0.target=Store
-comment0.text=\r\n\ Store.java\r\n\ Representa\ una\ tienda\ ubicada\ en\ un\ punto\ de\ la\ ruta.\r\n\ @author\ MELO-ROZO\r\n\ @Ciclo\ 1\r\n
-numComments=1
+comment0.text=\r\n\ Tienda\ con\ posici\u00F3n\ y\ tenges.\r\n\ @author\ MELO-ROZO\r\n\ @CICLO-3\r\n
+comment1.params=location\ tenges
+comment1.target=Store(int,\ int)
+comment2.params=
+comment2.target=int\ getLocation()
+comment3.params=
+comment3.target=int\ getTenges()
+comment4.params=
+comment4.target=java.awt.Color\ getColor()
+numComments=5

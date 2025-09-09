@@ -1,4 +1,14 @@
 #BlueJ class context
 comment0.target=Robot
-comment0.text=\r\n\ Robot.java\r\n\ Representa\ un\ robot\ que\ se\ desplaza\ por\ la\ rutA.\r\n\ @author\ MELO-ROZO\r\n\ @Ciclo\ 1\r\n
-numComments=1
+comment0.text=\r\n\ Robot\ que\ se\ mueve\ por\ la\ ruta.\r\n\ @author\ MELO-ROZO\r\n\ @CICLO-3\r\n
+comment1.params=location
+comment1.target=Robot(int)
+comment2.params=
+comment2.target=int\ getLocation()
+comment3.params=
+comment3.target=java.awt.Color\ getColor()
+comment4.params=meters
+comment4.target=void\ move(int)
+comment5.params=
+comment5.target=void\ reset()
+numComments=6

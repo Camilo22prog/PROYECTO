@@ -1,8 +1,19 @@
 #BlueJ class context
 comment0.target=SilkDisplay
-comment0.text=\r\n\ SilkDisplay.java\ -\ Ventana\ que\ muestra\ la\ ruta\ y\ sus\ elementos.\r\n\ @author\ TuNombre\r\n\ @version\ 1.0\ (Ciclo\ 2)\r\n
+comment0.text=\r\n\ Ventana\ que\ muestra\ la\ ruta,\ tiendas\ y\ robots.\r\n\ @author\ MELO-ROZO\r\n\ CICLO-3\r\n
 comment1.params=length
 comment1.target=SilkDisplay(int)
+comment1.text=\r\n\ Crea\ el\ panel\ gr\u00E1fico\ con\ la\ espiral\ base.\r\n\ @param\ length\ longitud\ total\ de\ la\ ruta\ (n\u00BA\ de\ pasos).\r\n
 comment2.params=
 comment2.target=void\ makeVisible()
-numComments=3
+comment2.text=\r\n\ Muestra\ la\ ventana\ (thread-safe).\r\n
+comment3.params=s
+comment3.target=void\ addStore(Store)
+comment3.text=\r\n\ A\u00F1ade\ un\ c\u00EDrculo\ que\ representa\ una\ tienda.\r\n\ @param\ s\ tienda\ con\ posici\u00F3n\ y\ color.\r\n
+comment4.params=r
+comment4.target=void\ addRobot(Robot)
+comment4.text=\r\n\ A\u00F1ade\ un\ c\u00EDrculo\ que\ representa\ un\ robot.\r\n\ @param\ r\ robot\ con\ posici\u00F3n\ y\ color.\r\n
+comment5.params=
+comment5.target=void\ dispose()
+comment5.text=\r\n\ Libera\ la\ ventana\ y\ sus\ recursos.\r\n
+numComments=6
