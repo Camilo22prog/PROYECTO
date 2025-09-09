@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.target=SilkDisplay
-comment0.text=\r\n\ SilkDisplay.java\r\n\ Responsable\ de\ la\ interfaz\ gr\u00E1fica\:\ dibuja\ la\ ruta,\ tiendas\ y\ robots.\r\n\ @author\ MELO-ROZO\r\n\ @Ciclo\ 1\r\n
-numComments=1
+comment0.text=\r\n\ SilkDisplay.java\ -\ Ventana\ que\ muestra\ la\ ruta\ y\ sus\ elementos.\r\n\ @author\ TuNombre\r\n\ @version\ 1.0\ (Ciclo\ 2)\r\n
+comment1.params=length
+comment1.target=SilkDisplay(int)
+comment2.params=
+comment2.target=void\ makeVisible()
+numComments=3

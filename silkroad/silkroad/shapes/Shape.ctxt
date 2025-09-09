@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Shape
+comment0.text=\r\n\ Shape.java\ -\ Clase\ base\ para\ cualquier\ figura\ del\ simulador.\r\n\ @author\ MELO-ROZO\r\n\ @CICLO-2\r\n
+comment1.params=g2
+comment1.target=void\ draw(java.awt.Graphics2D)
+comment2.params=c
+comment2.target=void\ changeColor(java.awt.Color)
+numComments=3

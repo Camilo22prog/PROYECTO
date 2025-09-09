@@ -7,6 +7,7 @@
  */
 public class SilkRoad{
     private int length;
+    private final SilkDisplay display;
 
     /**
      * Crea una nueva ruta de seda.
@@ -14,13 +15,22 @@ public class SilkRoad{
      */
     public SilkRoad(int length){
         this.length = length;
+        this.display = new SilkDisplay(length);
+    }
+    
+    public void makeVisible(){
+    display.makeVisible();
     }
 
     /**
      * Método rápido para probar que el esqueleto compila.
      */
     public static void main(String[] args){
-        SilkRoad road = new SilkRoad(100);
-        System.out.println("SilkRoad creada con longitud de: " + road.length);
+        SilkRoad road = new SilkRoad(50);  
+        road.makeVisible();
+   
     }
+    
+    
+    
 }

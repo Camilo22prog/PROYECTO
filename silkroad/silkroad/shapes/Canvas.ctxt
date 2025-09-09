@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Canvas
+comment0.text=\r\n\ Canvas.java\ -\ Panel\ donde\ se\ dibujan\ todas\ las\ figuras.\r\n\ @author\ TuNombre\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Canvas()
+comment2.params=s
+comment2.target=void\ add(Shape)
+comment3.params=g
+comment3.target=void\ paintComponent(java.awt.Graphics)
+numComments=4
