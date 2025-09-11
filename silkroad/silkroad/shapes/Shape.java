@@ -6,7 +6,7 @@ import java.awt.*;
  * @author MELO-ROZO
  * @CICLO-2
  */
-public abstract class Shape {          // ← S mayúscula
+public abstract class Shape { 
     protected int x, y;
     protected Color color = Color.BLACK;
     public abstract void draw(Graphics2D g2);

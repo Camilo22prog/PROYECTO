@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SilkDisplay
-comment0.text=\r\n\ Ventana\ que\ muestra\ la\ ruta,\ tiendas\ y\ robots.\r\n\ @author\ MELO-ROZO\r\n\ CICLO-3\r\n
+comment0.text=\r\n\ SilkDisplay.java\ -\ Ventana\ que\ muestra\ la\ ruta,\ tiendas\ y\ robots.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO-3\r\n
 comment1.params=length
 comment1.target=SilkDisplay(int)
 comment1.text=\r\n\ Crea\ el\ panel\ gr\u00E1fico\ con\ la\ espiral\ base.\r\n\ @param\ length\ longitud\ total\ de\ la\ ruta\ (n\u00BA\ de\ pasos).\r\n

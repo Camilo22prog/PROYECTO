@@ -1,19 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- *Clase principal del simulador "The Silk Road ... with Robots!".
+ * SilkRoad.java - Clase principal del simulador "The Silk Road ... with Robots!".
  * Permite crear una ruta, añadir/eliminar tiendas y robots, moverlos
  * y consultar ganancias.
  * @author MELO-ROZO
- * CICLO-3
+ * @version CICLO-3
  */
 public class SilkRoad {
 
     private final int length;
     private final List<Store> stores = new ArrayList<>();
     private final List<Robot> robots = new ArrayList<>();
-    private final SilkDisplay display; 
+    private final SilkDisplay display;
 
     /**
      * Crea una nueva ruta de seda.

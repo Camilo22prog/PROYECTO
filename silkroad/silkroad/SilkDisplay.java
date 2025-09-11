@@ -1,16 +1,16 @@
 import shapes.*;
 import javax.swing.*;
-import java.awt.*;
+
 
 /**
- * Ventana que muestra la ruta, tiendas y robots.
+ * SilkDisplay.java - Ventana que muestra la ruta, tiendas y robots.
  * @author MELO-ROZO
- * CICLO-3
+ * @version CICLO-3
  */
 public class SilkDisplay {
 
     private final JFrame frame;
-    private final shapes.Canvas canvas;
+    private final Canvas canvas;
     private final SquareSpiral spiral;
 
     /**
@@ -19,7 +19,7 @@ public class SilkDisplay {
      */
     public SilkDisplay(int length) {
         spiral = new SquareSpiral(length);
-        canvas = new shapes.Canvas();
+        canvas= new shapes.Canvas();
         canvas.add(spiral);
 
         frame = new JFrame("SilkRoad");

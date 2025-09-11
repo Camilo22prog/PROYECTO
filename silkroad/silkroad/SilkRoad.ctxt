@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SilkRoad
-comment0.text=\r\nClase\ principal\ del\ simulador\ "The\ Silk\ Road\ ...\ with\ Robots\!".\r\n\ Permite\ crear\ una\ ruta,\ a\u00F1adir/eliminar\ tiendas\ y\ robots,\ moverlos\r\n\ y\ consultar\ ganancias.\r\n\ @author\ MELO-ROZO\r\n\ CICLO-3\r\n
+comment0.text=\r\n\ SilkRoad.java\ -\ Clase\ principal\ del\ simulador\ "The\ Silk\ Road\ ...\ with\ Robots\!".\r\n\ Permite\ crear\ una\ ruta,\ a\u00F1adir/eliminar\ tiendas\ y\ robots,\ moverlos\r\n\ y\ consultar\ ganancias.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO-3\r\n
 comment1.params=length
 comment1.target=SilkRoad(int)
 comment1.text=\r\n\ Crea\ una\ nueva\ ruta\ de\ seda.\r\n\ @param\ length\ longitud\ total\ de\ la\ ruta\ (n\u00BA\ de\ posiciones).\r\n
