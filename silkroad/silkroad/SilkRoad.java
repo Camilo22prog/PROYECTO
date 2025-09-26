@@ -30,7 +30,7 @@ public class SilkRoad {
         this.display = new SilkDisplay(length, stores, robots);
     }
     
-    // ============ OPERACIONES PRINCIPALES ============
+   
     
     public void placeStore(int location, int tenges) {
         lastOperationOk = false;
@@ -226,7 +226,7 @@ public class SilkRoad {
         lastOperationOk = true;
     }
     
-    // ============ CONSULTAS SIMPLIFICADAS ============
+ 
     
     public int profit() { return totalProfit; }
     public boolean ok() { return lastOperationOk; }

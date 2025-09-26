@@ -29,14 +29,14 @@ public class TestCiclo2 {
             road1.placeRobot(4);
 
             if (road1.ok()) {
-                System.out.println("✓ CUMPLIDO: SilkRoad creado desde entrada de maratón");
+                System.out.println("CUMPLIDO: SilkRoad creado desde entrada de maratón");
                 int[][] stores = road1.stores();
                 int[][] robots = road1.robots();
                 System.out.println("  Tiendas: " + stores.length + " (esperadas: 3)");
                 System.out.println("  Robots:  " + robots.length + " (esperados: 2)");
 
                 if (stores.length == 3 && robots.length == 2) {
-                    System.out.println("✓ CUMPLIDO: Parseo correcto de entrada de maratón");
+                    System.out.println("CUMPLIDO: Parseo correcto de entrada de maratón");
                 }
             }
 
