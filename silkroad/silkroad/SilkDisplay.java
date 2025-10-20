@@ -5,12 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-/**
- * SilkDisplay.java - Display avanzado con efectos visuales.
- * Incluye parpadeo del robot top performer y tiendas diferenciadas.
- * @author MELO-ROZO
- * @version CICLO 2
- */
 public class SilkDisplay {
 
     private final JFrame frame;
@@ -20,13 +14,16 @@ public class SilkDisplay {
     private final List<Robot> robots;
     private final ProgressBar bar;
     
-    // NUEVO: Sistema de parpadeo para robot top performer
     private Timer blinkTimer;
     private int topRobotIndex = -1;
     private boolean blinkState = false;
     
     /**
-     * Constructor con inicialización del sistema de parpadeo
+     * Constructor del display.
+     * @param length longitud de la ruta.
+     * @param stores lista de tiendas a mostrar.
+     * @param robots lista de robots a mostrar.
+     * @description Inicializa el display con elementos visuales.
      */
     public SilkDisplay(int length, List<Store> stores, List<Robot> robots) {
         this.stores = stores;
@@ -46,25 +43,23 @@ public class SilkDisplay {
         frame.add(canvas);
         frame.pack();
         
-        // NUEVO: Inicializar timer de parpadeo
         initializeBlinkTimer();
     }
     
-    /**
-     * NUEVO: Inicializa el sistema de parpadeo para robot top performer
-     */
     private void initializeBlinkTimer() {
-        blinkTimer = new Timer(500, new ActionListener() { // Parpadeo cada 500ms
+        blinkTimer = new Timer(500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 blinkState = !blinkState;
-                refreshAfterMove(); // Redibujar para mostrar efecto parpadeo
+                refreshAfterMove();
             }
         });
     }
     
     /**
-     * NUEVO: Activa parpadeo para el robot top performer
+     * Configura el robot con más dinero para parpadear.
+     * @param robotIndex índice del robot top.
+     * @description Activa el efecto de parpadeo para el robot.
      */
     public void setTopRobot(int robotIndex) {
         boolean wasBlinking = blinkTimer.isRunning();
@@ -77,14 +72,11 @@ public class SilkDisplay {
         
         if (robotIndex >= 0 && robotIndex < robots.size()) {
             blinkTimer.start();
-            System.out.println("Robot " + robotIndex + " is now the top performer - BLINKING");
-        } else {
-            System.out.println("No top robot to highlight");
         }
     }
     
     /**
-     * NUEVO: Detiene el parpadeo
+     * Detiene el efecto de parpadeo.
      */
     public void stopBlinking() {
         if (blinkTimer.isRunning()) {
@@ -102,7 +94,9 @@ public class SilkDisplay {
     }
 
     /**
-     * Añade tienda con color diferenciado según estado
+     * Añade una tienda al display.
+     * @param s tienda a añadir.
+     * @description Dibuja un cuadrado en la ubicación de la tienda.
      */
     public void addStore(Store s) {
         if (s == null) return;
@@ -110,11 +104,10 @@ public class SilkDisplay {
         int[] xy = spiral.toXY(s.getLocation());
         shapes.Rectangle rect = new shapes.Rectangle(xy[0] - 7, xy[1] - 7, 14);
         
-        // NUEVO: Color diferenciado para tiendas vacías
         if (s.isEmpty()) {
-            rect.changeColor(Color.LIGHT_GRAY); // Tiendas desocupadas grises
+            rect.changeColor(Color.LIGHT_GRAY);
         } else {
-            rect.changeColor(s.getColor()); // Tiendas con dinero verdes
+            rect.changeColor(s.getColor());
         }
         
         canvas.add(rect);
@@ -122,7 +115,9 @@ public class SilkDisplay {
     }
 
     /**
-     * Añade robot con efecto de parpadeo para top performer
+     * Añade un robot al display.
+     * @param r robot a añadir.
+     * @description Dibuja un círculo en la ubicación del robot.
      */
     public void addRobot(Robot r) {
         if (r == null) return;
@@ -131,15 +126,11 @@ public class SilkDisplay {
         int[] xy = spiral.toXY(r.getLocation());
         shapes.Circle circ = new shapes.Circle(xy[0], xy[1], 6);
         
-        // NUEVO: Efecto parpadeo para robot top performer
         if (robotIndex == topRobotIndex && blinkState) {
-            // Durante parpadeo: color amarillo brillante
             circ.changeColor(Color.YELLOW);
         } else if (robotIndex == topRobotIndex) {
-            // Top robot en estado normal: color especial (naranja)
             circ.changeColor(Color.ORANGE);
         } else {
-            // Robots normales: color original
             circ.changeColor(r.getColor());
         }
         
@@ -159,32 +150,27 @@ public class SilkDisplay {
         refreshAll();
     }
 
-    /**
-     * Redibuja todo con efectos visuales avanzados
-     */
     private void refreshAll() {
         shapes.Canvas newCanvas = new shapes.Canvas();
         
         newCanvas.add(spiral);
         newCanvas.add(bar);
         
-        // Redibujar tiendas con estados diferenciados
         synchronized(stores) {
             for (Store store : stores) {
                 int[] xy = spiral.toXY(store.getLocation());
                 shapes.Rectangle rect = new shapes.Rectangle(xy[0] - 7, xy[1] - 7, 14);
                 
                 if (store.isEmpty()) {
-                    rect.changeColor(Color.LIGHT_GRAY); // Gris para desocupadas
+                    rect.changeColor(Color.LIGHT_GRAY);
                 } else {
-                    rect.changeColor(store.getColor()); // Verde para activas
+                    rect.changeColor(store.getColor());
                 }
                 
                 newCanvas.add(rect);
             }
         }
         
-        // Redibujar robots con efecto parpadeo
         synchronized(robots) {
             for (int i = 0; i < robots.size(); i++) {
                 Robot robot = robots.get(i);
@@ -192,11 +178,11 @@ public class SilkDisplay {
                 shapes.Circle circ = new shapes.Circle(xy[0], xy[1], 6);
                 
                 if (i == topRobotIndex && blinkState) {
-                    circ.changeColor(Color.YELLOW); // Parpadeo amarillo
+                    circ.changeColor(Color.YELLOW);
                 } else if (i == topRobotIndex) {
-                    circ.changeColor(Color.ORANGE); // Top robot naranja
+                    circ.changeColor(Color.ORANGE);
                 } else {
-                    circ.changeColor(robot.getColor()); // Color normal
+                    circ.changeColor(robot.getColor());
                 }
                 
                 newCanvas.add(circ);
@@ -212,7 +198,7 @@ public class SilkDisplay {
     }
 
     public void clearAll() {
-        stopBlinking(); // Detener parpadeo al limpiar
+        stopBlinking();
         
         shapes.Canvas newCanvas = new shapes.Canvas();
         newCanvas.add(spiral);
@@ -226,6 +212,11 @@ public class SilkDisplay {
         });
     }
 
+    /**
+     * Actualiza la barra de progreso.
+     * @param current valor actual.
+     * @param max valor máximo.
+     */
     public void updateProfit(int current, int max) {
         if (bar == null) return;
         
@@ -239,6 +230,10 @@ public class SilkDisplay {
         canvas.repaint();
     }
 
+    /**
+     * Muestra un mensaje de error si el display es visible.
+     * @param msg mensaje a mostrar.
+     */
     public void showError(String msg) {
         if (frame != null && frame.isVisible() && msg != null && !msg.trim().isEmpty()) {
             SwingUtilities.invokeLater(() -> {
@@ -256,7 +251,7 @@ public class SilkDisplay {
     }
 
     public void finish() {
-        stopBlinking(); // Importante: detener timer antes de cerrar
+        stopBlinking();
         
         SwingUtilities.invokeLater(() -> {
             if (frame != null) {

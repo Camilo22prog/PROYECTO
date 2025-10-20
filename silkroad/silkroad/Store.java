@@ -1,10 +1,5 @@
 import java.awt.Color;
 
-/**
- * Store.java - Tienda inteligente que maneja su propio estado y estadísticas
- * @author MELO-ROZO
- * @version CICLO2
- */
 public class Store {
     private final int location;
     private final int originalTenges;  
@@ -22,16 +17,15 @@ public class Store {
         this.color = generateStoreColor();
     }
     
-    // MÉTODOS ORIGINALES 
     public int getLocation() { return location; }
     public int getTenges() { return currentTenges; }
     public Color getColor() { return generateStoreColor(); } 
     public boolean isEmpty() { return isEmpty || currentTenges == 0; }
     
-    // NUEVAS RESPONSABILIDADES: GESTIÓN DE ESTADO PROPIO
     /**
-     * Vacía la tienda cuando un robot recoge el dinero
-     * @return cantidad de dinero que tenía la tienda
+     * Vacía la tienda y retorna el dinero recolectado.
+     * @return cantidad de dinero recolectado.
+     * @description Marca la tienda como vacía y actualiza estadísticas.
      */
     public int empty() {
         if (isEmpty()) return 0;
@@ -46,7 +40,8 @@ public class Store {
     }
     
     /**
-     * Reabastece la tienda a su valor original
+     * Reabastece la tienda a su estado original.
+     * @description Restaura la cantidad original de tenges.
      */
     public void restock() {
         currentTenges = originalTenges;
@@ -54,7 +49,8 @@ public class Store {
     }
     
     /**
-     * Valida si puede ser vaciada por un robot
+     * Verifica si la tienda puede ser vaciada.
+     * @return true si la tienda no está vacía y tiene tenges > 0.
      */
     public boolean canBeEmptied() {
         return !isEmpty() && currentTenges > 0;
@@ -64,35 +60,37 @@ public class Store {
     public long getLastEmptiedTime() { return lastEmptiedTime; }
     public int getOriginalTenges() { return originalTenges; }
     
+    /**
+     * Reinicia las estadísticas de la tienda.
+     * @description Pone a 0 veces vaciada y el tiempo de última vaciado.
+     */
     public void resetStatistics() {
         timesEmptied = 0;
         lastEmptiedTime = 0;
     }
     
-    /**
-     * NUEVO: Genera color dinámico según estado actual
-     */
     private Color generateStoreColor() {
         if (isEmpty()) {
             return Color.LIGHT_GRAY;
         } else {
-            // Verde más intenso para tiendas con más dinero
             float intensity = Math.min(1.0f, currentTenges / 200.0f);
             return Color.getHSBColor(0.33f, 1f, 0.5f + intensity * 0.5f);
         }
     }
     
-    // NUEVAS RESPONSABILIDADES: VALIDACIONES PROPIAS
     /**
-     * Valida si la ubicación es válida para esta tienda
+     * Verifica si la ubicación es válida para esta tienda.
+     * @param maxRouteLength longitud máxima de la ruta.
+     * @return true si la ubicación está dentro de los límites.
      */
     public boolean isValidLocation(int maxRouteLength) {
         return location >= 0 && location < maxRouteLength;
     }
     
     /**
-     * Calcula qué tan atractiva es esta tienda para un robot
-     * (usado por los robots)
+     * Calcula qué tan atractiva es esta tienda para un robot.
+     * @param robotLocation ubicación del robot.
+     * @return puntuación basada en tenges y distancia.
      */
     public double getAttractivenessScore(int robotLocation) {
         if (isEmpty()) return 0;

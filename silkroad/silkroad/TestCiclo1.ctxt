@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TestCiclo1
-comment0.text=\r\n\ TestRequisitos.java\ -\ Clase\ dedicada\ para\ probar\ TODOS\ los\ requisitos\ del\ proyecto.\r\n\ Evidencia\ sistem\u00E1tica\ del\ cumplimiento\ de\ cada\ funcionalidad\ especificada.\r\n\ @author\ MELO-ROZO\r\n\ @version\ ENTREGA_FINAL\r\n
+comment0.text=\r\n\ TestCiclo1.java\ -\ Clase\ dedicada\ para\ probar\ TODOS\ los\ requisitos\ del\ proyecto.\r\n\ Evidencia\ sistem\u00E1tica\ del\ cumplimiento\ de\ cada\ funcionalidad\ especificada.\r\n\ @author\ MELO-ROZO\r\n\ @version\ ENTREGA_FINAL\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment10.params=

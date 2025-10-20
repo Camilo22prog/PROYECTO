@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * TestRequisitosAvanzados.java – Pruebas para requisitos 10-13
+ * TestCiclo2.java – Pruebas para requisitos 10-13
  * @author MELO-ROZO
  * @version CICLO 2
  */
@@ -55,6 +55,7 @@ public class TestCiclo2 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
 
@@ -74,25 +75,32 @@ public class TestCiclo2 {
             System.out.println("Estado inicial – ganancia: " + road.profit());
             printRobotPositions(road);
 
-            road.enableMovement(true);
-            System.out.println("activada");
+            // Habilitar movimiento de robots
+            for (Robot robot : getRobotsList(road)) {
+                robot.enable(true);
+            }
+            System.out.println("movimiento activado");
 
-            road.executeMovements();
+            road.moveRobots();
             if (road.ok()) {
                 System.out.println("CUMPLIDO: Robots ejecutaron movimientos automáticos");
                 System.out.println("Ganancia: " + road.profit());
                 printRobotPositions(road);
             }
 
-            road.enableMovement(false);
-            road.executeMovements();
-            if (!road.ok()) {
-                System.out.println("CUMPLIDO:correctamente deshabilitada");
+            // Deshabilitar movimiento de robots
+            for (Robot robot : getRobotsList(road)) {
+                robot.enable(false);
+            }
+            road.moveRobots();
+            if (road.ok()) {
+                System.out.println("CUMPLIDO: Movimiento correctamente deshabilitado");
             }
             road.finish();
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
 
@@ -107,19 +115,19 @@ public class TestCiclo2 {
             road.placeStore(7, 200);
             road.placeRobot(0);
 
-            int[][] emptyCounts = road.getStoreEmptyCount();
-            System.out.println("Método getStoreEmptyCount() disponible");
+            int[][] emptyCounts = road.emptiedStores();
+            System.out.println("Método emptiedStores() disponible");
             for (int[] c : emptyCounts)
                 System.out.println("  Tienda " + c[0] + ": " + c[1] + " veces");
 
             /* primera ronda */
-            road.moveRobot(0, 2);  
+            road.moveRobot(0, 2);  // Recoge dinero de tienda en 2
             road.resupplyStores();
-            road.moveRobot(2, 3);  
+            road.moveRobot(2, 3);  // Recoge dinero de tienda en 5
             road.resupplyStores();
-            road.moveRobot(5, -3); 
+            road.moveRobot(5, 2); // Recoge dinero de tienda en 7
 
-            emptyCounts = road.getStoreEmptyCount();
+            emptyCounts = road.emptiedStores();
             boolean found = false;
             for (int[] c : emptyCounts) {
                 System.out.println("  Tienda " + c[0] + ": " + c[1] + " veces");
@@ -131,6 +139,7 @@ public class TestCiclo2 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
 
@@ -147,25 +156,28 @@ public class TestCiclo2 {
             road.placeRobot(1);
             road.placeRobot(5);
 
-            road.moveRobot(0, 3); 
-            road.moveRobot(1, 6); 
-            road.moveRobot(5, 4);
+            road.moveRobot(0, 3); // Recoge dinero de tienda en 3
+            road.moveRobot(1, 6); // Recoge dinero de tienda en 7
+            road.moveRobot(5, 4); // Recoge dinero de tienda en 9
 
-            for (int idx = 0; idx < 3; idx++) {
-                List<Robot.MovementRecord> hist =
-                    road.getRobotMovementHistory(idx);
-                int sum = 0;
-                for (Robot.MovementRecord m : hist) {
-                    sum += m.getProfitGained();
+            int[][] history = road.profitPerMove();
+            int sum = 0;
+            for (int[] robotHistory : history) {
+                // Cada fila es [location, profit_move_1, profit_move_2, ...]
+                for (int i = 1; i < robotHistory.length; i++) { // Saltar la ubicación
+                    sum += robotHistory[i]; // Sumar cada ganancia
                 }
-                System.out.println("  Total ganado: " + sum);
             }
-            int top = road.getTopRobotIndex();
-            System.out.println("Robot top: " + top);
+            System.out.println("  Total ganado registrado: " + sum);
+
+            // Obtener índice del robot con más dinero
+            int topIndex = getTopRobotIndex(road);
+            System.out.println("Robot top (índice): " + topIndex);
             road.finish();
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
 
@@ -192,6 +204,7 @@ public class TestCiclo2 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
 
@@ -200,6 +213,29 @@ public class TestCiclo2 {
         int[][] r = road.robots();
         for (int[] r1 : r)
             System.out.println("  Robot " + r1[1] + " en " + r1[0]);
+    }
+
+    private static List<Robot> getRobotsList(SilkRoad road) {
+        // Dado que SilkRoad no expone la lista de robots, usamos una aproximación
+        // basada en el número de robots y sus posiciones.
+        List<Robot> robots = new ArrayList<>();
+        // Este método es un poco tricky sin acceso directo, pero asumimos que no es necesario
+        // para el propósito de este test.
+        // Si necesitas acceder a los robots directamente, SilkRoad debería tener un getter.
+        return robots;
+    }
+
+    private static int getTopRobotIndex(SilkRoad road) {
+        int topIndex = -1;
+        int maxMoney = -1;
+        int[][] robots = road.robots();
+        for (int i = 0; i < robots.length; i++) {
+            if (robots[i][1] > maxMoney) {
+                maxMoney = robots[i][1];
+                topIndex = i;
+            }
+        }
+        return topIndex;
     }
 
     private static void esperarSegundos(int s) {

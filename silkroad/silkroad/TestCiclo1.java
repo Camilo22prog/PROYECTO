@@ -1,5 +1,5 @@
 /**
- * TestRequisitos.java - Clase dedicada para probar TODOS los requisitos del proyecto.
+ * TestCiclo1.java - Clase dedicada para probar TODOS los requisitos del proyecto.
  * Evidencia sistemática del cumplimiento de cada funcionalidad especificada.
  * @author MELO-ROZO
  * @version ENTREGA_FINAL
@@ -57,6 +57,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -136,6 +137,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -202,6 +204,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -269,6 +272,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -337,6 +341,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -385,6 +390,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -456,6 +462,7 @@ public class TestCiclo1 {
         }
         
         road.finish();
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -503,6 +510,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("✗ FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -533,6 +541,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("✗ FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -566,6 +575,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("✗ FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -596,6 +606,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("✗ FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -630,6 +641,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     
@@ -662,6 +674,7 @@ public class TestCiclo1 {
         } catch (Exception e) {
             System.out.println("FALLO: " + e.getMessage());
         }
+        esperarSegundos(1);
         System.out.println();
     }
     

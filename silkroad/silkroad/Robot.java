@@ -1,11 +1,6 @@
 import java.awt.Color;
 import java.util.*;
 
-/**
- * Robot.java - Robot inteligente que puede decidir sus propios movimientos
- * @author MELO-ROZO  
- * @version CICLO2
- */
 public class Robot {
     private final int id;
     private int location;
@@ -33,37 +28,61 @@ public class Robot {
     public int getInitLocation() { return initLocation; }
     public int getCollectedMoney() { return collectedMoney; }
     
+    /**
+     * Mueve al robot una cantidad de metros.
+     * @param meters metros a mover (puede ser negativo).
+     * @description Registra el movimiento en el historial.
+     */
     public void move(int meters) { 
         int oldLocation = location;
         location += meters;
-        // Registrar movimiento en historial
         movementHistory.add(new MovementRecord(oldLocation, location, meters, false));
     }
     
+    /**
+     * Mueve al robot a una ubicación específica.
+     * @param newLocation nueva ubicación del robot.
+     * @description Registra el movimiento en el historial.
+     */
     public void moveTo(int newLocation) {
         int oldLocation = location;
         location = newLocation;
         movementHistory.add(new MovementRecord(oldLocation, newLocation, newLocation - oldLocation, false));
     }
     
+    /**
+     * Añade dinero recolectado al robot.
+     * @param amount cantidad de dinero a añadir.
+     * @description Actualiza el historial de movimientos con la ganancia.
+     */
     public void addMoney(int amount) {
         collectedMoney += amount;
-        // Actualizar último movimiento con ganancia
         if (!movementHistory.isEmpty()) {
             MovementRecord lastMove = movementHistory.get(movementHistory.size() - 1);
             lastMove.addProfit(amount);
         }
     }
     
+    /**
+     * Reinicia la posición del robot a su ubicación inicial.
+     * @description No afecta el dinero recolectado.
+     */
     public void reset() { 
         location = initLocation;
     }
     
+    /**
+     * Reinicia el dinero recolectado del robot a 0.
+     * @description No afecta la posición.
+     */
     public void resetMoney() {
         collectedMoney = 0;
     }
     
-    // NUEVAS RESPONSABILIDADES
+    /**
+     * Habilita o deshabilita el movimiento automático del robot.
+     * @param enabled true para habilitar, false para deshabilitar.
+     */
     public void enable(boolean enabled) {
         this.Enabled = enabled;
     }
@@ -73,10 +92,11 @@ public class Robot {
     }
     
     /**
-     * El robot decide su mejor movimiento basado en tiendas disponibles
-     * @param availableStores lista de tiendas con dinero disponible
-     * @param maxLocation límite máximo de la ruta
-     * @return distancia a mover (0 si no hay buen movimiento)
+     * Decide el mejor movimiento basado en tiendas disponibles.
+     * @param availableStores lista de tiendas con dinero disponibles.
+     * @param maxLocation límite máximo de la ruta.
+     * @return distancia a mover (0 si no hay movimiento óptimo).
+     * @description Calcula el movimiento que maximiza ganancia/distance.
      */
     public int decideBestMovement(List<Store> availableStores, int maxLocation) {
         if (!Enabled || availableStores.isEmpty()) {
@@ -92,12 +112,10 @@ public class Robot {
             int targetLocation = store.getLocation();
             int distance = targetLocation - this.location;
             
-            // Validar que el movimiento es posible
             if (targetLocation < 0 || targetLocation >= maxLocation) {
                 continue;
             }
             
-            // Calcular puntuación (ganancia vs distancia)
             double score = (double) store.getTenges() / (Math.abs(distance) + 1);
             
             if (score > bestScore) {
@@ -110,7 +128,9 @@ public class Robot {
     }
     
     /**
-     * Ejecuta movimiento y registra como tal
+     * Ejecuta un movimiento automático y lo registra.
+     * @param distance metros a mover.
+     * @description Solo se ejecuta si el robot está habilitado.
      */
     public void executeAIMovement(int distance) {
         if (!Enabled) return;
@@ -125,18 +145,33 @@ public class Robot {
         return new ArrayList<>(movementHistory);
     }
     
+    /**
+     * Limpia el historial de movimientos del robot.
+     */
     public void clearHistory() {
         movementHistory.clear();
     }
     
+    /**
+     * Retorna el número total de movimientos registrados.
+     * @return cantidad de movimientos.
+     */
     public int getTotalMovements() {
         return movementHistory.size();
     }
     
+    /**
+     * Retorna el número de movimientos automáticos.
+     * @return cantidad de movimientos automáticos.
+     */
     public int getMovements() {
         return (int) movementHistory.stream().filter(MovementRecord::isMovement).count();
     }
     
+    /**
+     * Retorna el número de movimientos manuales.
+     * @return cantidad de movimientos manuales.
+     */
     public int getManualMovements() {
         return getTotalMovements() - getMovements();
     }
@@ -156,8 +191,6 @@ public class Robot {
     public static void resetIdCounter() { nextId = 0; }
     
 
-    
-    
     public static class MovementRecord {
         private final int fromLocation;
         private final int toLocation;
