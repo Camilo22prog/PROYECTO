@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Rectangle
+comment0.text=\r\n\ Rectangle.java\ -\ Cuadrado\ coloreado.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO-7\r\n
+comment1.params=x\ y\ side
+comment1.target=Rectangle(int,\ int,\ int)
+comment2.params=g2
+comment2.target=void\ draw(java.awt.Graphics2D)
+numComments=3

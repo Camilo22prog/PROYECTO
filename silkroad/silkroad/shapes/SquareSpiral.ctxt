@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=SquareSpiral
+comment0.text=\r\n\ Dibuja\ la\ ruta\ como\ espiral\ cuadrada\ y\ convierte\r\n\ posiciones\ l\u00F3gicas\ en\ coordenadas\ de\ pantalla.\r\n\ @author\ MELO-ROZO\r\n\ @CASO\ 2\r\n
+comment1.params=length
+comment1.target=SquareSpiral(int)
+comment2.params=
+comment2.target=void\ generate()
+comment3.params=g2
+comment3.target=void\ draw(java.awt.Graphics2D)
+comment4.params=loc
+comment4.target=int[]\ toXY(int)
+comment5.params=v
+comment5.target=int\ scale(int)
+numComments=6

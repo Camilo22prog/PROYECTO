@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ProgressBar
+comment0.text=\r\n\ ProgressBar.java\ -\ Barra\ simple\ (verde)\ sin\ n\u00FAmeros.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO-7\r\n
+comment1.params=x\ y\ w\ h\ max
+comment1.target=ProgressBar(int,\ int,\ int,\ int,\ int)
+comment2.params=v
+comment2.target=void\ setValue(int)
+comment3.params=m
+comment3.target=void\ setMax(int)
+comment4.params=g2
+comment4.target=void\ draw(java.awt.Graphics2D)
+numComments=5

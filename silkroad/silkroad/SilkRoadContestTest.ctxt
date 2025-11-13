@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SilkRoadContestTest
+comment1.params=
+comment1.target=void\ testSolveReturnsCorrectProfit()
+comment2.params=
+comment2.target=void\ testSolveWithEmptyDays()
+comment3.params=
+comment3.target=void\ testSolveWithSingleDay()
+comment4.params=
+comment4.target=void\ testSimulateRunsWithoutException()
+numComments=5

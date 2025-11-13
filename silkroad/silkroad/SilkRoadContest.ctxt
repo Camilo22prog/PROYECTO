@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=SilkRoadContest
+comment0.text=\r\n\ SilkRoadContest\ -\ Clase\ que\ resuelve\ y\ simula\ el\ problema\ de\ la\ marat\u00F3n.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO3\r\n
+comment1.params=days
+comment1.target=int\ solve(int[][])
+comment1.text=\r\n\ Resuelve\ el\ problema\ de\ la\ marat\u00F3n\ y\ devuelve\ la\ ganancia\ m\u00E1xima\ posible.\r\n\ @param\ days\ matriz\ donde\ cada\ fila\ es\ [d\u00EDa,\ tengesPorD\u00EDa].\r\n\ @return\ ganancia\ m\u00E1xima\ posible.\r\n\ @description\ Utiliza\ programaci\u00F3n\ din\u00E1mica\ o\ heur\u00EDstica\ para\ encontrar\ la\ mejor\ estrategia.\r\n
+comment2.params=days\ slow
+comment2.target=void\ simulate(int[][],\ boolean)
+comment2.text=\r\n\ Simula\ la\ soluci\u00F3n\ paso\ a\ paso.\r\n\ @param\ days\ matriz\ donde\ cada\ fila\ es\ [d\u00EDa,\ tengesPorD\u00EDa].\r\n\ @param\ slow\ true\ para\ mostrar\ pausas\ entre\ pasos.\r\n\ @description\ Muestra\ la\ simulaci\u00F3n\ d\u00EDa\ a\ d\u00EDa.\r\n
+comment3.params=segundos
+comment3.target=void\ esperarSegundos(int)
+numComments=4

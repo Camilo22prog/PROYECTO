@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=TestCiclo3
+comment0.text=\r\n\ TestCiclo3.java\ -\ Clase\ dedicada\ para\ probar\ los\ nuevos\ requisitos\ del\ Ciclo\ 3.\r\n\ Evidencia\ sistem\u00E1tica\ del\ cumplimiento\ de\ los\ requisitos\ 14\ y\ 15.\r\n\ @author\ MELO-ROZO\r\n\ @version\ CICLO3\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ testRequisito14_SolucionarMaraton()
+comment2.text=\r\n\ REQUISITO\ 14\:\ Debe\ solucionar\ el\ problema\ de\ la\ marat\u00F3n\r\n
+comment3.params=
+comment3.target=void\ testRequisito15_SimularSolucion()
+comment3.text=\r\n\ REQUISITO\ 15\:\ Debe\ simular\ la\ soluci\u00F3n\r\n
+numComments=4

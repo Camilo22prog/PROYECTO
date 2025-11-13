@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Circle
+comment0.text=\r\n\ C\u00EDrculo\ coloreado.\r\n\ @author\ MELO-ROZO\r\n\ @CICLO-3\r\n
+comment1.params=x\ y\ radius
+comment1.target=Circle(int,\ int,\ int)
+comment2.params=g2
+comment2.target=void\ draw(java.awt.Graphics2D)
+comment3.params=nx\ ny
+comment3.target=void\ moveTo(int,\ int)
+comment3.text=Mueve\ el\ c\u00EDrculo\ a\ nuevas\ coordenadas.
+numComments=4
